@@ -17,7 +17,7 @@
 * Quantity
 
 ## How to submit:
-Send an email to italo@turnoverbnb.com with the link of your repository
+Send an email to assaf@turnoverbnb.com with the link of your repository
 
 
 ### The project must be done using the following technologies
