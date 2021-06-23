@@ -5,6 +5,7 @@ namespace Tests\Feature;
 
 
 use App\Models\Product;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
@@ -23,15 +24,18 @@ class ProductControllerTest extends TestCase
 
         Product::create($expectedProduct);
         $response = $this->json("GET", "/api/product");
+
         $response->assertStatus(200);
         $response->assertJson(function(AssertableJson $json) use ($expectedProduct) {
-            $json->has(1)->first(function($json) use ($expectedProduct) {
+
+            $json->has('data.0', function($json) use ($expectedProduct) {
                 $json->where('id', 1)
                     ->where('name', $expectedProduct['name'])
                     ->where('price', $expectedProduct['price'])
                     ->where('quantity', $expectedProduct['quantity'])
                     ->etc();
             });
+            $json->etc();
         });
     }
 

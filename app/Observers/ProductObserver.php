@@ -14,7 +14,7 @@ class ProductObserver
      */
     public function creating(Product $product)
     {
-        $product->price_log = json_encode([date('Y-m-d H:i:s'), $product->price]);
+        $product->price_log = json_encode([["date" => date('Y-m-d H:i'), "price" => $product->price]]);
     }
 
     /**
@@ -27,9 +27,8 @@ class ProductObserver
     {
         if ($product->isDirty('price')) {
             // price has changed
-            $priceLogs = array_merge(json_decode($product->price_log), [
-                date('Y-m-d H:i:s'), $product->price
-            ]);
+            $priceLogs = json_decode($product->price_log, true);
+            $priceLogs[] = ["date" => date('Y-m-d H:i'), "price" => $product->price];
 
             $product->price_log = json_encode($priceLogs);
         }
