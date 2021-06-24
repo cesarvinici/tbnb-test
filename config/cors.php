@@ -19,13 +19,13 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://cesarvss-tbnb-test.herokuapp.com'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => ['Access-Control-Allow-Origin'],
+    'exposed_headers' => [],
 
     'max_age' => 0,
 
