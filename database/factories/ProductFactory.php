@@ -23,7 +23,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => uniqid(),
-            'price' => $this->faker->randomFloat(2, 0),
+            'price' => $this->faker->randomFloat(2, 1, 5000),
             'quantity' => $this->faker->numberBetween(1, 100)
         ];
     }
