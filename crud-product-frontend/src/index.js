@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-      <BrowserRouter>
+      <BrowserRouter basename="index.html">
         <App />
       </BrowserRouter>,
   document.getElementById('root')
