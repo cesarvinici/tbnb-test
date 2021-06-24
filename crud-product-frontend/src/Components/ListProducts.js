@@ -8,7 +8,7 @@ import { withRouter } from "react-router";
 
 function deletePoduct(event, id) {
     if (window.confirm("Are you sure?")) {
-        let url = `http://localhost:8000/api/product/${id}`;
+        let url = `http://ec2-3-94-20-132.compute-1.amazonaws.com/api/product/${id}`;
         console.log(url)
         axios.delete(url)
             .then(() => {
@@ -25,7 +25,7 @@ function ListProducts(props) {
 
     let page = props.match.params.page;
 
-    let url = "http://localhost:8000/api/product";
+    let url = "http://ec2-3-94-20-132.compute-1.amazonaws.com/api/product";
     if (page) {
         url = `${url}?page=${page}`;
     }

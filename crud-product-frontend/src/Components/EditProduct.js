@@ -35,7 +35,7 @@ class EditProduct extends Component {
 
     getProduct() {
         let productId = this.props.match.params.id;
-        axios.get(`http://localhost:8000/api/product/${productId}`)
+        axios.get(`http://ec2-3-94-20-132.compute-1.amazonaws.com/api/product/${productId}`)
             .then(response => {
                 this.setState({
                     id: response.data.id,
@@ -57,7 +57,7 @@ class EditProduct extends Component {
 
         axios.request({
             method: "put",
-            url: `http://localhost:8000/api/product/${product.id}`,
+            url: `http://ec2-3-94-20-132.compute-1.amazonaws.com/api/product/${product.id}`,
             data: product
         }).then(response => {
             this.setState({

@@ -23,7 +23,7 @@ class AddProduct extends Component {
 
         axios.request({
             method: "post",
-            url: "http://localhost:8000/api/product",
+            url: "http://ec2-3-94-20-132.compute-1.amazonaws.com/api/product",
             data: newProduct
         }).then(response => {
             this.props.history.push('/')
